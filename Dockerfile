@@ -46,5 +46,8 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
+# 런타임 환경변수
+ENV API_BASE_URL=""
+
 # 엔트리포인트로 실행
 ENTRYPOINT ["./docker-entrypoint.sh"]

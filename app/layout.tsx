@@ -31,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <script src="/env-config.js" />
+      </head>
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
