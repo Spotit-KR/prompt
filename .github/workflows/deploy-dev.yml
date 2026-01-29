@@ -106,7 +106,7 @@ jobs:
       - name: Update image tag in values-dev.yaml
         run: |
           cd helm-repo
-          sed -i 's/tag: ".*"/tag: "${{ needs.build-and-push.outputs.image-tag }}"/' prompt/values/values-dev.yaml
+          sed -i 's/tag: ".*"/tag: "${{ needs.build-and-push.outputs.image-tag }}"/' prompt/values/values-prod.yaml
 
       - name: Commit and push changes
         run: |
