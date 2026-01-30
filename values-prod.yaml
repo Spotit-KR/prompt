@@ -1,0 +1,5 @@
+env:
+  - name: API_BASE_URL
+    value: "https://api.team.io.kr"
+  - name: NODE_ENV
+    value: "production"

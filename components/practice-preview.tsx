@@ -29,7 +29,7 @@ export function PracticePreview() {
   return (
     <section id="practice" className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-7xl mx-auto">
-        <div 
+        <div
           ref={headerRef}
           className={`text-center mb-12 animate-on-scroll ${headerVisible ? "is-visible" : ""}`}
         >
@@ -37,7 +37,7 @@ export function PracticePreview() {
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">이렇게 연습합니다</h2>
         </div>
 
-        <div 
+        <div
           ref={tabsRef}
           className={`flex justify-center gap-4 mb-10 animate-on-scroll ${tabsVisible ? "is-visible" : ""}`}
         >
@@ -71,8 +71,8 @@ function ImagePracticePreview() {
   const { ref, isVisible } = useAnimateOnScroll()
 
   return (
-    <div 
-      id="practice1" 
+    <div
+      id="practice1"
       ref={ref}
       className={`grid lg:grid-cols-2 gap-8 items-start animate-on-scroll ${isVisible ? "is-visible" : ""}`}
     >
@@ -139,10 +139,7 @@ function ImagePracticePreview() {
           </div>
         </div>
 
-        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25">
-          이미지 묘사 연습 시작하기
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
+
       </div>
     </div>
   )
@@ -152,8 +149,8 @@ function SituationPracticePreview() {
   const { ref, isVisible } = useAnimateOnScroll()
 
   return (
-    <div 
-      id="practice2" 
+    <div
+      id="practice2"
       ref={ref}
       className={`grid lg:grid-cols-2 gap-8 items-start animate-on-scroll ${isVisible ? "is-visible" : ""}`}
     >
@@ -236,10 +233,7 @@ function SituationPracticePreview() {
           </div>
         </div>
 
-        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25">
-          상황 기반 연습 시작하기
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
+
       </div>
     </div>
   )

@@ -52,13 +52,21 @@ export function WaitlistForm({
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+      // URL에서 channel, postNumber 파싱
+      const params = new URLSearchParams(window.location.search);
+      const currentChannel = params.get("channel") || source; // URL에 channel이 없으면 기존 source 사용
+      const postNumber = params.get("postNumber") || "";
+
+      // UX-Log 명세에 따른 요청 (POST /api/email)
       const response = await fetch(`${apiUrl}/api/email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           projectId: 1,
           email,
-          channel: source,
+          channel: currentChannel,
+          postNumber: postNumber,
         }),
       });
 
@@ -122,7 +130,7 @@ export function WaitlistForm({
             </>
           ) : (
             <>
-              사전 예약
+              출시 알림 받기
               <ArrowRight className="w-4 h-4 ml-2" />
             </>
           )}
@@ -132,9 +140,8 @@ export function WaitlistForm({
       {/* Status Message */}
       {message && (
         <div
-          className={`mt-3 flex items-start gap-2 text-sm ${
-            status === "success" ? "text-green-500" : "text-red-500"
-          } animate-fade-in`}
+          className={`mt-3 flex items-start gap-2 text-sm ${status === "success" ? "text-green-500" : "text-red-500"
+            } animate-fade-in`}
         >
           {status === "success" ? (
             <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />

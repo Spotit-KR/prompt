@@ -18,6 +18,7 @@ RUN npm ci
 COPY . .
 
 # Next.js 빌드
+ENV NEXT_PUBLIC_API_URL=__API_BASE_URL__
 RUN npm run build
 
 # ===== Stage 3: Runner =====
