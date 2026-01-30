@@ -64,7 +64,8 @@ export function PainPointSection() {
           className={`mt-16 text-center animate-on-scroll ${footerVisible ? "is-visible" : ""}`}
         >
           <p className="text-2xl sm:text-3xl font-bold text-foreground">
-            문제는 AI가 아니라,{" "}
+            문제는 AI가 아니라,
+            <br />
             <span className="text-primary">질문하는 방법</span>입니다.
           </p>
         </div>

@@ -1,43 +1,55 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useAnimateOnScroll } from "@/hooks/use-animate-on-scroll"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Check, ImageIcon, MessageSquare, Star, Lightbulb } from "lucide-react"
+import { useState, useEffect } from "react";
+import { useAnimateOnScroll } from "@/hooks/use-animate-on-scroll";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  ArrowRight,
+  Check,
+  ImageIcon,
+  MessageSquare,
+  Star,
+  Lightbulb,
+} from "lucide-react";
 
 export function PracticePreview() {
-  const [activeTab, setActiveTab] = useState<"image" | "situation">("image")
-  const { ref: headerRef, isVisible: headerVisible } = useAnimateOnScroll()
-  const { ref: tabsRef, isVisible: tabsVisible } = useAnimateOnScroll()
+  const [activeTab, setActiveTab] = useState<"image" | "situation">("image");
+  const { ref: headerRef, isVisible: headerVisible } = useAnimateOnScroll();
+  const { ref: tabsRef, isVisible: tabsVisible } = useAnimateOnScroll();
 
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash
+      const hash = window.location.hash;
       if (hash === "#practice1") {
-        setActiveTab("image")
+        setActiveTab("image");
       } else if (hash === "#practice2") {
-        setActiveTab("situation")
+        setActiveTab("situation");
       }
-    }
+    };
 
-    handleHashChange()
-    window.addEventListener("hashchange", handleHashChange)
-    return () => window.removeEventListener("hashchange", handleHashChange)
-  }, [])
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return (
-    <section id="practice" className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
+    <section
+      id="practice"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30"
+    >
       <div className="max-w-7xl mx-auto">
-        <div 
+        <div
           ref={headerRef}
           className={`text-center mb-12 animate-on-scroll ${headerVisible ? "is-visible" : ""}`}
         >
           <p className="text-primary text-sm font-medium mb-4">연습 미리보기</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">이렇게 연습합니다</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            이렇게 연습합니다
+          </h2>
         </div>
 
-        <div 
+        <div
           ref={tabsRef}
           className={`flex justify-center gap-4 mb-10 animate-on-scroll ${tabsVisible ? "is-visible" : ""}`}
         >
@@ -59,20 +71,27 @@ export function PracticePreview() {
           </Button>
         </div>
 
-        <div key={activeTab} className="animate-fade-in-up [animation-delay:0ms]">
-          {activeTab === "image" ? <ImagePracticePreview /> : <SituationPracticePreview />}
+        <div
+          key={activeTab}
+          className="animate-fade-in-up [animation-delay:0ms]"
+        >
+          {activeTab === "image" ? (
+            <ImagePracticePreview />
+          ) : (
+            <SituationPracticePreview />
+          )}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function ImagePracticePreview() {
-  const { ref, isVisible } = useAnimateOnScroll()
+  const { ref, isVisible } = useAnimateOnScroll();
 
   return (
-    <div 
-      id="practice1" 
+    <div
+      id="practice1"
       ref={ref}
       className={`grid lg:grid-cols-2 gap-8 items-start animate-on-scroll ${isVisible ? "is-visible" : ""}`}
     >
@@ -84,9 +103,15 @@ function ImagePracticePreview() {
           <span className="text-sm text-muted-foreground">이미지 확인</span>
         </div>
         <div className="aspect-video rounded-xl bg-muted flex items-center justify-center overflow-hidden">
-          <img src="/modern-minimalist-office-workspace-with-laptop-and.jpg" alt="연습 이미지" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+          <img
+            src="/modern-minimalist-office-workspace-with-laptop-and.jpg"
+            alt="연습 이미지"
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          />
         </div>
-        <p className="mt-4 text-sm text-muted-foreground">위 이미지를 AI 이미지 생성 도구에게 설명하듯 묘사해보세요.</p>
+        <p className="mt-4 text-sm text-muted-foreground break-keep break-word">
+          위 이미지를 AI 이미지 생성 도구에게 설명하듯 묘사해보세요.
+        </p>
       </div>
 
       <div className="space-y-6">
@@ -98,8 +123,9 @@ function ImagePracticePreview() {
             <span className="text-sm text-muted-foreground">프롬프트 작성</span>
           </div>
           <div className="bg-muted/50 rounded-xl p-4 font-mono text-sm text-muted-foreground">
-            <p className="text-foreground">
-              "미니멀한 현대식 사무실 책상 위에 맥북과 커피잔이 있는 장면. 자연광이 들어오고 깔끔한 분위기..."
+            <p className="text-foreground break-keep break-word">
+              "미니멀한 현대식 사무실 책상 위에 맥북과 커피잔이 있는 장면.
+              자연광이 들어오고 깔끔한 분위기..."
             </p>
           </div>
         </div>
@@ -109,7 +135,9 @@ function ImagePracticePreview() {
             <Badge variant="outline" className="text-primary border-primary">
               Step 3
             </Badge>
-            <span className="text-sm text-muted-foreground">결과 확인 및 평가</span>
+            <span className="text-sm text-muted-foreground">
+              결과 확인 및 평가
+            </span>
           </div>
           <div className="flex items-center gap-4 mb-4">
             <div className="flex-1">
@@ -119,14 +147,19 @@ function ImagePracticePreview() {
                 <span className="text-sm text-muted-foreground">/ 100</span>
               </div>
               <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style={{ width: "87%" }} />
+                <div
+                  className="h-full bg-primary rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: "87%" }}
+                />
               </div>
             </div>
           </div>
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm">
               <Check className="w-4 h-4 text-primary" />
-              <span className="text-muted-foreground">구체적인 오브젝트 묘사</span>
+              <span className="text-muted-foreground">
+                구체적인 오브젝트 묘사
+              </span>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <Check className="w-4 h-4 text-primary" />
@@ -145,15 +178,15 @@ function ImagePracticePreview() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
 
 function SituationPracticePreview() {
-  const { ref, isVisible } = useAnimateOnScroll()
+  const { ref, isVisible } = useAnimateOnScroll();
 
   return (
-    <div 
-      id="practice2" 
+    <div
+      id="practice2"
       ref={ref}
       className={`grid lg:grid-cols-2 gap-8 items-start animate-on-scroll ${isVisible ? "is-visible" : ""}`}
     >
@@ -166,10 +199,12 @@ function SituationPracticePreview() {
             <span className="text-sm text-muted-foreground">주어진 과제</span>
           </div>
           <div className="bg-muted/50 rounded-xl p-4">
-            <p className="text-foreground font-medium mb-2">마케팅 이메일 작성</p>
+            <p className="text-foreground font-medium mb-2">
+              마케팅 이메일 작성
+            </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              신규 SaaS 제품 런칭을 알리는 마케팅 이메일을 작성해야 합니다. 타겟 고객은 중소기업 대표들이고, 무료 체험
-              기간을 강조해야 합니다.
+              신규 SaaS 제품 런칭을 알리는 마케팅 이메일을 작성해야 합니다. 타겟
+              고객은 중소기업 대표들이고, 무료 체험 기간을 강조해야 합니다.
             </p>
           </div>
         </div>
@@ -183,8 +218,9 @@ function SituationPracticePreview() {
           </div>
           <div className="bg-muted/50 rounded-xl p-4 font-mono text-sm">
             <p className="text-foreground">
-              "중소기업 대표들을 위한 SaaS 제품 런칭 이메일을 작성해줘. 14일 무료 체험을 강조하고, 도입 시 업무 효율이
-              30% 향상된다는 점을 어필해줘..."
+              "중소기업 대표들을 위한 SaaS 제품 런칭 이메일을 작성해줘. 14일
+              무료 체험을 강조하고, 도입 시 업무 효율이 30% 향상된다는 점을
+              어필해줘..."
             </p>
           </div>
         </div>
@@ -196,7 +232,9 @@ function SituationPracticePreview() {
             <Badge variant="outline" className="text-primary border-primary">
               평가
             </Badge>
-            <span className="text-sm text-muted-foreground">점수 및 피드백</span>
+            <span className="text-sm text-muted-foreground">
+              점수 및 피드백
+            </span>
           </div>
           <div className="flex items-center gap-4 mb-6">
             <div className="flex-1">
@@ -206,14 +244,19 @@ function SituationPracticePreview() {
                 <span className="text-sm text-muted-foreground">/ 100</span>
               </div>
               <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style={{ width: "72%" }} />
+                <div
+                  className="h-full bg-primary rounded-full transition-all duration-1000 ease-out"
+                  style={{ width: "72%" }}
+                />
               </div>
             </div>
           </div>
 
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-medium text-foreground mb-2">잘한 점</h4>
+              <h4 className="text-sm font-medium text-foreground mb-2">
+                잘한 점
+              </h4>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>- 타겟 고객 명확히 지정</li>
                 <li>- 핵심 강조점(무료 체험) 포함</li>
@@ -221,13 +264,18 @@ function SituationPracticePreview() {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-medium text-foreground mb-2">개선 포인트</h4>
+              <h4 className="text-sm font-medium text-foreground mb-2">
+                개선 포인트
+              </h4>
               <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
                 <div className="flex items-start gap-2">
                   <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                   <p className="text-sm text-muted-foreground">
-                    <span className="text-foreground font-medium">추가 고려사항을 확인하세요.</span> 이메일 길이나 톤,
-                    제외해야 할 표현 등 제약 조건이 있는지 마지막에 "다른 고려할 사항은 없나요?"라고 질문을 덧붙이면 더
+                    <span className="text-foreground font-medium">
+                      추가 고려사항을 확인하세요.
+                    </span>{" "}
+                    이메일 길이나 톤, 제외해야 할 표현 등 제약 조건이 있는지
+                    마지막에 "다른 고려할 사항은 없나요?"라고 질문을 덧붙이면 더
                     좋습니다.
                   </p>
                 </div>
@@ -242,5 +290,5 @@ function SituationPracticePreview() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

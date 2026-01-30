@@ -47,9 +47,9 @@ export function FeaturesSection() {
         >
           <p className="text-primary text-sm font-medium mb-4">핵심 기능</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            프롬프트 실력, 이렇게 키웁니다
+            프롬프트 실력, <br /> 이렇게 키웁니다
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto break-keep break-word">
             단순히 예시를 보여주는 게 아닙니다.
             <br /> 직접 연습하고, 평가받고, 개선하는 사이클을 반복하며 실력을
             키워갑니다.
@@ -74,7 +74,7 @@ export function FeaturesSection() {
               <h3 className="text-lg font-semibold text-foreground mb-2">
                 {feature.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line break-keep break-word">
                 {feature.description}
               </p>
             </div>
