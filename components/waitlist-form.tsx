@@ -89,11 +89,14 @@ export function WaitlistForm({
         }
       } else {
         setStatus("error");
-        setMessage(data.message || "등록 중 오류가 발생했습니다.");
+        setMessage(
+          data.message ||
+            "이메일 등록에 실패했습니다. 잠시 후 다시 시도해주세요.",
+        );
       }
     } catch (error) {
       setStatus("error");
-      setMessage("네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+      setMessage("이메일 등록에 실패했습니다. 잠시 후 다시 시도해주세요.");
     }
   };
 
@@ -140,8 +143,9 @@ export function WaitlistForm({
       {/* Status Message */}
       {message && (
         <div
-          className={`mt-3 flex items-start gap-2 text-sm ${status === "success" ? "text-green-500" : "text-red-500"
-            } animate-fade-in`}
+          className={`mt-3 flex items-start gap-2 text-sm ${
+            status === "success" ? "text-green-500" : "text-red-500"
+          } animate-fade-in`}
         >
           {status === "success" ? (
             <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
