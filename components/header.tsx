@@ -21,8 +21,8 @@ export function Header() {
             <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               핵심 기능
             </Link>
-            <a 
-              href="#practice1" 
+            <a
+              href="#practice1"
               onClick={(e) => {
                 e.preventDefault()
                 window.location.hash = "practice1"
@@ -32,8 +32,8 @@ export function Header() {
             >
               연습 1: 이미지 묘사
             </a>
-            <a 
-              href="#practice2" 
+            <a
+              href="#practice2"
               onClick={(e) => {
                 e.preventDefault()
                 window.location.hash = "practice2"
@@ -50,7 +50,7 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              사전 예약하기
+              출시 알림 받기
             </Button>
           </div>
 
@@ -65,8 +65,8 @@ export function Header() {
               <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
                 핵심 기능
               </Link>
-              <a 
-                href="#practice1" 
+              <a
+                href="#practice1"
                 onClick={(e) => {
                   e.preventDefault()
                   setIsMenuOpen(false)
@@ -77,8 +77,8 @@ export function Header() {
               >
                 연습 1: 이미지 묘사
               </a>
-              <a 
-                href="#practice2" 
+              <a
+                href="#practice2"
                 onClick={(e) => {
                   e.preventDefault()
                   setIsMenuOpen(false)
@@ -94,7 +94,7 @@ export function Header() {
               </Link>
               <div className="pt-4">
                 <Button size="sm" className="w-full bg-primary text-primary-foreground">
-                  사전 예약하기
+                  출시 알림 받기
                 </Button>
               </div>
             </nav>

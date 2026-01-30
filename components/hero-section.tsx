@@ -49,41 +49,29 @@ export function HeroSection() {
           </p>
 
           <div className="max-w-md mx-auto animate-fade-in-up [animation-delay:600ms]">
-            <p className="mb-3 text-sm text-muted-foreground break-keep break-word">
-              출시 알림을 가장 먼저 받아보세요. 스팸 없이, 중요한 소식만
-              전해드립니다.
-            </p>
-            <p className="mb-3 text-sm text-muted-foreground">
-              사전예약 안내를 위해 이메일을 수집합니다
-            </p>
             <WaitlistForm
               source="hero"
               onCountUpdate={handleCountUpdate}
               waitlistCount={waitlistCount}
             />
+            <p className="mt-3 text-sm text-muted-foreground">
+              사전예약 안내를 위해 이메일을 수집합니다
+            </p>
+          </div>
 
-            <div
-              className={`mt-4 flex items-center justify-center gap-2 text-sm transition-opacity duration-300 ${
-                waitlistCount !== null && waitlistCount > 0
-                  ? "opacity-100"
-                  : "opacity-0 pointer-events-none"
-              }`}
-            >
-              <Users className="w-4 h-4 text-primary" />
-              <p className="text-muted-foreground">
+          <div className="mt-6 flex items-center justify-center gap-8 text-sm text-muted-foreground animate-fade-in [animation-delay:800ms]">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span>
                 현재{" "}
                 <span className="text-primary font-semibold">
                   {waitlistCount || 0}명
                 </span>
-                이 사전 예약했어요
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-4 flex items-center justify-center gap-8 text-sm text-muted-foreground animate-fade-in [animation-delay:800ms]">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary" />
-              <span>베타 테스터 모집 중</span>
+                대기 중
+              </span>
             </div>
           </div>
         </div>

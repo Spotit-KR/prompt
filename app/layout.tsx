@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import "./globals.css";
 
+import { TrackingScript } from "@/components/tracking-script";
+
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
@@ -23,6 +25,9 @@ export const metadata: Metadata = {
     "AI 시대",
     "프롬프트 역량",
   ],
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

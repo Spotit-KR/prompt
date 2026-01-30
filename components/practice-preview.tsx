@@ -172,10 +172,7 @@ function ImagePracticePreview() {
           </div>
         </div>
 
-        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25">
-          이미지 묘사 연습 시작하기
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
+
       </div>
     </div>
   );
@@ -284,10 +281,7 @@ function SituationPracticePreview() {
           </div>
         </div>
 
-        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25">
-          상황 기반 연습 시작하기
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
+
       </div>
     </div>
   );
