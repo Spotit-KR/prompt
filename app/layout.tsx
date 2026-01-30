@@ -41,6 +41,7 @@ export default function RootLayout({
         <script src="/env-config.js" />
       </head>
       <body className={`font-sans antialiased`}>
+        <TrackingScript />
         {/* Google tag (gtag.js) */}
         <Script
           async
